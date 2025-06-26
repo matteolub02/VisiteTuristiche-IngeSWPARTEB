@@ -5,65 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class TimeTest {
-
-	@Test
-	void testGetAllDatesSameDayOfTheWeek() {
-		/*
-		String[] dates = Time.getAllDatesSameDayOfTheWeek("12-12-2025", "19-12-2025", 1).split(" ");
-		assertEquals(dates[0], "15-12-2025");
-		dates = Time.getAllDatesSameDayOfTheWeek("01-12-2025", "01-02-2026", 1).split(" ");
-		String[] c = new String[] {"01-12-2025", "08-12-2025", "15-12-2025", "22-12-2025", "29-12-2025",
-				"05-01-2026", "12-01-2026", "19-01-2026", "26-01-2026"};
-		for (int i = 0 ; i < c.length ; i++) {
-			assertEquals(dates[i], c[i]);
-		}
-		dates = Time.getAllDatesSameDayOfTheWeek("01-01-2025", "07-01-2025", 3).split(" ");
-	    assertEquals(dates[0], "01-01-2025");
-	    
-	    // Test con intervallo più lungo, controllando più date
-	    dates = Time.getAllDatesSameDayOfTheWeek("01-02-2025", "28-02-2025", 5).split(" ");
-	    String[] expected1 = {"07-02-2025", "14-02-2025", "21-02-2025", "28-02-2025"}; // Venerdì
-	    assertArrayEquals(expected1, dates);
-
-	    // Test con un anno bisestile
-	    dates = Time.getAllDatesSameDayOfTheWeek("01-02-2024", "29-02-2024", 4).split(" ");
-	    String[] expected2 = {"01-02-2024", "08-02-2024", "15-02-2024", "22-02-2024", "29-02-2024"}; // Giovedì
-	    assertArrayEquals(expected2, dates);
-	    
-	    // Test su un intervallo che non include il giorno della settimana specificato
-	    dates = Time.getAllDatesSameDayOfTheWeek("01-03-2025", "05-03-2025", 6).split(" ");
-	    assertEquals(1, dates.length); // 1 sabato in questo arco, il primo marzo
-
-	    dates = Time.getAllDatesSameDayOfTheWeek("01-01-2025", "31-12-2025", 7).split(" ");
-	    assertTrue(dates.length > 50); // Dovrebbero esserci circa 52 domeniche
-	    dates = Time.getAllDatesSameDayOfTheWeek("17-09-2025", "17-09-2025", 3).split(" ");
-	    assertTrue(dates.length == 1 || dates.length == 0); // Se il 17/09/2025 è mercoledì
-
-	    dates = Time.getAllDatesSameDayOfTheWeek("01-09-2025", "31-10-2025", 1).split(" ");
-	    assertEquals(9, dates.length);
-	    
-	    dates = Time.getAvailabilityWindow("01-11-2025", "03-03-2026", Time.getDesideredMonthAndYear(16, "17-11-2025"));
-	    dates = Time.getAllDatesSameDayOfTheWeek(dates[0], dates[1], 1).split(" ");
-	    String[] expected3 = {"05-01-2026", "12-01-2026", "19-01-2026", "26-01-2026"}; 
-	    assertArrayEquals(dates, expected3);
-	    
-	    dates = Time.getAvailabilityWindow("01-11-2025", "03-03-2026", Time.getDesideredMonthAndYear(16, "17-12-2025"));
-	    System.out.println(dates[0] + " " + dates[1]);
-	    dates = Time.getAllDatesSameDayOfTheWeek(dates[0], dates[1], 1).split(" ");
-	    String[] expected4 = {"02-02-2026", "09-02-2026", "16-02-2026", "23-02-2026"}; 
-	    assertArrayEquals(dates, expected4);
-	    
-	    dates = Time.getAvailabilityWindow("01-11-2025", "03-03-2026", Time.getDesideredMonthAndYear(16, "17-01-2026"));
-	    System.out.println(dates[0] + " " + dates[1]);
-	    dates = Time.getAllDatesSameDayOfTheWeek(dates[0], dates[1], 1).split(" ");
-	    String[] expected5 = {"02-03-2026"}; 
-	    assertArrayEquals(dates, expected5);
-	    
-	    
-	    DA RISCRIVERE PERCHE- USO ARRAYLIST ORA
-	    
-		*/
-	}
 	
 	@Test
 	void validDate() {

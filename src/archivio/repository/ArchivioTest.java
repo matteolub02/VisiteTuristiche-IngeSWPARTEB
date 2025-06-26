@@ -2,11 +2,11 @@ package archivio.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
-import org.junit.runners.MethodSorters;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import archivio.ArchivioFactory;
 import archivio.CredenzialiManager;
@@ -21,7 +21,7 @@ import dto.TipoVisitaDTO;
 import utility.CostantiStruttura;
 import utility.Credenziali;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@TestMethodOrder(MethodOrderer.MethodName.class)
 class ArchivioTest {
 	ArchivioJSON archivio; 
 	AmbitoRepository ambitoRep;

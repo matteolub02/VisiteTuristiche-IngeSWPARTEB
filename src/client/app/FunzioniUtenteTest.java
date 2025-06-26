@@ -4,10 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+
 import client.controller_utente.*;
 import utility.Credenziali;
 
+@TestMethodOrder(MethodOrderer.MethodName.class)
 class FunzioniUtenteTest {
 	
 	private App app = new AppUI();
@@ -28,7 +32,7 @@ class FunzioniUtenteTest {
 	}
 	
 	@Test
-	void testLogin() {
+	void test1_Login() {
 		assertTrue(app.getGu() instanceof HandlerConfiguratore);
 		assertTrue(app.scegliAzione("6")); //true azione eseguita o ignorata
 		assertFalse(app.scegliAzione("esc")); //false errore o esc
@@ -36,7 +40,7 @@ class FunzioniUtenteTest {
 	}
 	
 	@Test
-	void testConfiguratoreView() {
+	void test2_ConfiguratoreView() {
 		int i = getIndexAzione("Visualizza visite proposte, complete, confermate, cancellate e effettuate");
 		app.scegliAzione(String.valueOf(i));
 		i = getIndexAzione("Visualizza elenco tipi visite per luogo");
@@ -48,17 +52,22 @@ class FunzioniUtenteTest {
 	}
 	
 	@Test
-	void testSceltaAzioneNonDisponibile() {
+	void test3_SceltaAzioneNonDisponibile() {
 		int i = getIndexAzione("Effettua iscrizione ad una visita proposta");
 		assertEquals(i, -1);
 	}
 	
 	@Test
-	void testAggiuntaCredenzialiConfiguratore() {
-		int i = getIndexAzione("Aggiungi credenziali nuovo configuratore");
+	void test4_AggiuntaCredenzialiVolontario() {
+		int i = getIndexAzione("Aggiungi volontari ad un tipo di visita esistente");
 		app.scegliAzione(String.valueOf(i)); //manualmente da inserire dati
-		assertTrue(app.getGu().checkIfUserExists("conftest"));
-		//da rimuovere user una volta aggiunto
+		assertTrue(app.getGu().checkIfUserExists("volontariotest"));
 	}
 	
+	@Test
+	void test5_RimozioneCredenzialiVolontario() {
+		int i = getIndexAzione("Rimuovi volontario");
+		app.scegliAzione(String.valueOf(i)); //manualmente da inserire dati
+		assertFalse(app.getGu().checkIfUserExists("volontariotest"));
+	}
 }
