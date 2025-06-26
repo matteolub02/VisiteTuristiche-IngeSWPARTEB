@@ -225,8 +225,8 @@ public class HandlerConfiguratore extends ControllerUtente{
 		else {
 			a.catchEvent(AppEvent.NEW_CONFIGURATOR_NOT_ADDED); //Event
 		}
-				
 	}
+	
 	@MethodName("Visualizza visite proposte, complete, confermate, cancellate e effettuate")
 	public void getElencoVisiteProposteCompleteConfermateCancellateEffettuate () {
 		a.viewListVisitaDTO(archivio.getElencoVisiteProposteCompleteConfermateCancellateEffettuate(connectionCode));

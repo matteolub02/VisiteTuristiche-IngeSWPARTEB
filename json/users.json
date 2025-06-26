@@ -39,6 +39,13 @@
                "98EYF34U"
           ]
      },
+     "volontariotest": {
+          "tipo": 2,
+          "password": "sefj",
+          "primo-accesso": true,
+          "tipo-visita": ["swag"],
+          "username": "volontariotest"
+     },
      "volontario2": {
           "tipo": 2,
           "password": "volontario2",

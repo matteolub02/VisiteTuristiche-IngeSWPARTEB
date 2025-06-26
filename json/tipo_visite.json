@@ -33,6 +33,21 @@
                     "punto-incontro": "Stazione metro di San Faustino",
                     "data-inizio": "01-01-2025"
           },
+          "swag": {
+                    "titolo": "swag",
+                    "ora-inizio": "08:30",
+                    "min-fruitore": 5,
+                    "luogo": "brescia_romana",
+                    "durata-visita": 60,
+                    "volontari": ["volontariotest"],
+                    "data-fine": "09-09-2025",
+                    "giorni-prenotabili": ["ven"],
+                    "da-acquistare": false,
+                    "descrizione": "swag",
+                    "max-fruitore": 20,
+                    "punto-incontro": "swag",
+                    "data-inizio": "08-08-2025"
+          },
           "museo_armi": {
                     "titolo": "Museo delle armi Luigi Marzoli",
                     "ora-inizio": "10:30",

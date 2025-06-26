@@ -8,6 +8,9 @@ class TimeTest {
 	
 	@Test
 	void validDate() {
+		assertFalse(Time.isValidDate("ergje"));
+		assertFalse(Time.isValidDate("01/05/2025"));
+		assertFalse(Time.isValidDate("08 Marzo 2025"));
 		assertTrue(Time.isValidDate("01-05-2025"));
 		assertTrue(Time.isValidDate("15-08-2023"));
 		assertTrue(Time.isValidDate("29-02-2024"));
