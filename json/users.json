@@ -77,5 +77,11 @@
           "password": "admin",
           "primo-accesso": false,
           "username": "conf1"
+     },
+     "configuratoretest": {
+          "tipo": 1,
+          "password": "testingspeciale",
+          "primo-accesso": true,
+          "username": "configuratoretest"
      }
 }

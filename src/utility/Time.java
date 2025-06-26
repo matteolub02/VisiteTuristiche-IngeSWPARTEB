@@ -194,9 +194,7 @@ public class Time {
 
 	public static boolean comesBefore(String date1, String date2) {
         try {
-        	System.out.println(date1 + " " + isValidDate(date1));
             LocalDate d1 = LocalDate.parse(date1, FORMATTER);
-            System.out.println("eccomi");
             LocalDate d2 = LocalDate.parse(date2, FORMATTER);
             return d1.isBefore(d2);
         } catch (Exception e) {

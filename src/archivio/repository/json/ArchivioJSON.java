@@ -398,7 +398,7 @@ public class ArchivioJSON implements AmbitoRepository, UserRepository, VisitsRep
 					i++;
 				}
 				else {
-					//TESTO DI LOG
+					//TESTO DI ERRORE, RUNNEREBBE SU SERVER
 					System.out.println("Can't link " + volontario.getUsername());
 				}
 			}
