@@ -198,7 +198,7 @@ public class Time {
             LocalDate d2 = LocalDate.parse(date2, FORMATTER);
             return d1.isBefore(d2);
         } catch (Exception e) {
-            return false; // Se la data non è valida, restituisce false
+            return false; 
         }
     }
 

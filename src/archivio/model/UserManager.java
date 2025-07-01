@@ -37,7 +37,7 @@ public class UserManager implements UserInfoManager {
 	}
 	
 	@Override
-	public int getTipoUtente (String username) { //OK
+	public int getTipoUtente (String username) { 
 		return userRep.getTipoUtente(username);
 	}
 
@@ -55,7 +55,7 @@ public class UserManager implements UserInfoManager {
 	}	
 
 	@Override
-	public boolean associaVolontarioEsistenteATipoVisitaEsistente(String connectionCode, String volontario, String tipoVisita) { //OK
+	public boolean associaVolontarioEsistenteATipoVisitaEsistente(String connectionCode, String volontario, String tipoVisita) { 
 		if ( getTipoUtente(getUsernameClient(connectionCode)) == CostantiStruttura.CONFIGURATORE
 				&& checkIfUsernameExists(volontario) && ambitoRep.checkIfVisitTypeExists(tipoVisita)) {
 			if (userRep.checkIfCanLinkVolontario(volontario, tipoVisita)) {
@@ -69,14 +69,14 @@ public class UserManager implements UserInfoManager {
 	}
 
 	@Override
-    public boolean inserisciDisponibilita(String connectionCode, String data) { //OK
+    public boolean inserisciDisponibilita(String connectionCode, String data) {
    	 if (getTipoUtente(getUsernameClient(connectionCode)) == CostantiStruttura.VOLONTARIO) 
    		 return userRep.inserisciDisponibilita(data, getUsernameClient(connectionCode));
    	 else return false;
 	}
 
 	@Override
-	public List<DataDisponibilitaDTO> getDatePerDisponibilita(String connectionCode) {	 //OK
+	public List<DataDisponibilitaDTO> getDatePerDisponibilita(String connectionCode) {	 
 		if (getTipoUtente(getUsernameClient(connectionCode)) == CostantiStruttura.VOLONTARIO) 
 			return userRep.getDatePerDisponibilita(getUsernameClient(connectionCode));
 		else return null;
@@ -171,7 +171,7 @@ public class UserManager implements UserInfoManager {
 	
 	private boolean canAddOrRemove() {
 		if (visitRep.isPrimaPubblicazione()) return true;
-		else return (visitRep.isUltimoPianoPubblicato() && !visitRep.getPossibileDareDisponibilita()); //POSSO MODIFICARE SOLO SE TRA PUBBLICAZIONE E RITORNATA POSS DISP
+		else return (visitRep.isUltimoPianoPubblicato() && !visitRep.getPossibileDareDisponibilita()); 
 	}
 
 }

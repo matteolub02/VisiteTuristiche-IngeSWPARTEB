@@ -108,7 +108,7 @@ public class AccessoManager implements CredenzialiManager {
 
 	@Override
 	public boolean cambiaCredenziali (String connectionCode, Credenziali c) {
-		if (!checkIfUsernameExists(getLinkedUsername(connectionCode))) return false; //non necessario?
+		if (!checkIfUsernameExists(getLinkedUsername(connectionCode))) return false; 
 		if (checkIfUsernameExists(c.getUsername())) return false;
 		if (userRep.modificaCredenziali(usernameLinkati.get(connectionCode), c)) { 
 			userRep.primoAccessoEseguito(c.getUsername());

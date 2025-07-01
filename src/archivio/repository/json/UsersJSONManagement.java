@@ -64,7 +64,7 @@ public class UsersJSONManagement {
 					for (Object m : user.getJSONArray(TIPO_VISITA)) {
 						tipiAssociati.add((String)m);
 					}
-					result.add(new VolontarioDTO(user.getString(USERNAME), tipiAssociati)); //TODO Simple Factory
+					result.add(new VolontarioDTO(user.getString(USERNAME), tipiAssociati)); 
 					break;
 				case CostantiStruttura.FRUITORE:
 					result.add(new VolontarioDTO(user.getString(USERNAME)));
@@ -186,14 +186,13 @@ public class UsersJSONManagement {
 			utente = (JSONObject) jsonUsers.get(username);
 			utente.put(USERNAME, c.getUsername());
 			utente.put(PASSWORD, c.getPassword());
-			//TODO modificare anche file visiteDaPubblicare? tecnicamente le modifica solo all'inizio
 			jsonUsers.remove(username);
 			jsonUsers.put(c.getUsername(), utente);
 			aggiornaJsonUsers ();
 			return true;
 		}
 		catch (Exception e) {
-			System.err.println("Problema in modificaCredenziali: " + e.getMessage()); //da comunicare ad App???
+			System.err.println("Problema in modificaCredenziali: " + e.getMessage()); 
 			return false;
 		}
 		
@@ -206,7 +205,7 @@ public class UsersJSONManagement {
 	
 	public void associaVolontarioEsistenteATipoVisitaEsistente (String username, String tipoVisita) {
 		JSONArray tipi = getTipiVisitaOfVolontario(username);
-		tipi.put(tipoVisita); //del volontario
+		tipi.put(tipoVisita); 
 		aggiornaJsonUsers();
 	}
 	

@@ -139,7 +139,7 @@ public class HandlerConfiguratore extends ControllerUtente{
  	@MethodName("Pubblica il piano delle visite")
 	public void pubblicaPianoVisite() {
 		if (appPlan.isReleaseOrLaterDay(connectionCode)) {
-			if (appPlan.isPrimaPubblicazione()) { //TODO da testare
+			if (appPlan.isPrimaPubblicazione()) { 
 				a.catchEvent(AppEvent.PROJECT_STARTED);
 				appPlan.pubblicaPiano(connectionCode);
 			}
@@ -265,7 +265,7 @@ public class HandlerConfiguratore extends ControllerUtente{
 						aggiunto = aggiungiTipoVisitePartendoDaLuogo(luogo.getTag());
 						a.catchEvent(aggiunto ? AppEvent.VISIT_TYPE_ADDED : AppEvent.VISIT_TYPE_NOT_ADDED);
 						if (aggiunto) {
-							aggiunto = !a.chiediSioNo("Vuoi continuare con l'aggiunta di tipi di visite?"); //se non vuole inserire ha finito
+							aggiunto = !a.chiediSioNo("Vuoi continuare con l'aggiunta di tipi di visite?"); 
 						}
 					} while (!aggiunto);
 				}

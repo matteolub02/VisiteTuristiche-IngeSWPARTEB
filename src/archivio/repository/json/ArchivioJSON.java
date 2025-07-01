@@ -11,7 +11,7 @@ import dto.*;
 import utility.Credenziali;
 import utility.Time;
 
-public class ArchivioJSON implements AmbitoRepository, UserRepository, VisitsRepository{ //appelle-moi si tu te perds
+public class ArchivioJSON implements AmbitoRepository, UserRepository, VisitsRepository{ 
 	
 	private PianoStoricoJSONManagement pianoStoricoJSONManager = new PianoStoricoJSONManagement();
 	private DaPubblicareJSONManagement daPubblicareJSONManager = new DaPubblicareJSONManagement();
@@ -94,7 +94,7 @@ public class ArchivioJSON implements AmbitoRepository, UserRepository, VisitsRep
 	//Precondizione: username di un volontario
 	public boolean rimuoviVolontario (String volontario) {
 		JSONArray tipiVolontario = usersJSONManager.getTipiVisitaOfVolontario(volontario);
-		for (Object tipoVolontario : tipiVolontario) { //ciclo sui suoi tipi
+		for (Object tipoVolontario : tipiVolontario) { 
 			 if (tipiVisiteJSONManager.rimuoviVolontarioDaTipo((String)tipoVolontario, volontario) == 0) rimuoviTipo((String)tipoVolontario);
 		}
 		return usersJSONManager.rimuoviVolontario(volontario);
@@ -292,7 +292,7 @@ public class ArchivioJSON implements AmbitoRepository, UserRepository, VisitsRep
 				(getUltimoMesePubblicazione() == Time.getActualDateValue(Time.MONTH) - 1 + 12 && getUltimoAnnoPubblicazione() == Time.getActualDateValue(Time.YEAR) - 1));
 	}
 
-	public List<DataDisponibilitaDTO> getDatePerDisponibilita(String username) {	 //OK
+	public List<DataDisponibilitaDTO> getDatePerDisponibilita(String username) {	
 		List<DataDisponibilitaDTO> result =
 				tipiVisiteJSONManager.getDatePerDisponibilitaFromTipiVisite(username, getTipiVisitaOfVolontario(username));
 		result.add(new DataDisponibilitaDTO("Date precluse", getDatePrecluse()));

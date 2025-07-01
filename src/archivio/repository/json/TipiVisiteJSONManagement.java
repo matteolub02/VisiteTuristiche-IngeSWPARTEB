@@ -63,7 +63,7 @@ public class TipiVisiteJSONManagement {
 	
 	public int rimuoviVolontarioDaTipo (String tipo, String volontario) {
 		JSONArray volontariTipo = getVolontariAssociatiTipoJSONArray(tipo);
-		for (int i = 0 ; i < volontariTipo.length() ; i++) { //cicla sui volontari per rimuovere quello che voglio rimuovere
+		for (int i = 0 ; i < volontariTipo.length() ; i++) { 
 			if (volontariTipo.get(i).equals(volontario)) {
 				volontariTipo.remove(i); 
 				break;
@@ -72,7 +72,7 @@ public class TipiVisiteJSONManagement {
 		aggiornaJsonTipiVisite();
 		return (volontariTipo.length());
 	}
-	//Questi due metodi VisitaDTO sono rischiosi per lo StatoVisita, non dovrebbe funzionare così
+
 	public VisitaDTO visitaDTOFruitore (String tag, String date, String statoVisita) {
 		JSONObject tipoVisita = getTipoVisitaJSONObject(tag);
         VisitaDTO visitaDTO = new VisitaDTO(
@@ -115,12 +115,12 @@ public class TipiVisiteJSONManagement {
 	}
 	
 	public boolean visitTypeIntersectsOtherVisitTypes (String dateStart1, String dateFinish1, String hour1, int duration1, String days1, JSONArray tipiVisitaVolontario) {
-		for (Object k : tipiVisitaVolontario) {  //OK
-			JSONObject tipo = jsonTipiVisite.getJSONObject((String)k); //prende ogni tipo dal json dei tipi
-			if (Time.comesBefore(dateStart1, tipo.getString(DATA_FINE)) && !Time.comesBefore(dateFinish1, tipo.getString(DATA_INIZIO))) { //controlla se periodi intersecano
-				JSONArray days2 = tipo.getJSONArray(GIORNI_PRENOTABILI); //prende giorni prenotabili del tipo
+		for (Object k : tipiVisitaVolontario) {  
+			JSONObject tipo = jsonTipiVisite.getJSONObject((String)k); 
+			if (Time.comesBefore(dateStart1, tipo.getString(DATA_FINE)) && !Time.comesBefore(dateFinish1, tipo.getString(DATA_INIZIO))) { 
+				JSONArray days2 = tipo.getJSONArray(GIORNI_PRENOTABILI); 
 				for (Object d : days2) { 
-					if (days1.contains((String)d)) return true; //se i giorni intersecano allora volontario linkato per quei giorni
+					if (days1.contains((String)d)) return true; 
 				}
 			}
 		}
@@ -233,7 +233,7 @@ public class TipiVisiteJSONManagement {
 		return result;
 	}
 	
-	public List<DataDisponibilitaDTO> getDatePerDisponibilitaFromTipiVisite(String username, JSONArray tipiVisite) {	 //OK
+	public List<DataDisponibilitaDTO> getDatePerDisponibilitaFromTipiVisite(String username, JSONArray tipiVisite) {	 
 		List<DataDisponibilitaDTO> result = new ArrayList<>();
 			for (Object s : tipiVisite) { 
 				JSONObject tipo = getTipoVisitaJSONObject((String)s);

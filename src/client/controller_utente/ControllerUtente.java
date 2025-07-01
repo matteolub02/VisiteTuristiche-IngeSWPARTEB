@@ -63,7 +63,7 @@ public abstract class ControllerUtente {
 			if (input.equalsIgnoreCase("esc")) return false;
 			else a.catchEvent(AppEvent.INVALID_CHOICE_ACTION);
 		}
-		catch (Exception e) { //TODO gestione migliore delle eccezioni
+		catch (Exception e) { 
 			System.err.println(e);
 			return false;
 		}
@@ -72,7 +72,7 @@ public abstract class ControllerUtente {
 	}
 	
 	public boolean checkIfUserExists(String username) {
-		return credenzialiInfo.checkIfUsernameExists(username); //user info?
+		return credenzialiInfo.checkIfUsernameExists(username);
 	}
 	
 	public boolean checkIfVisitTypeExists(String tipoVisita) {

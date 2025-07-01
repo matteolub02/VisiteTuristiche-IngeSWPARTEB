@@ -9,7 +9,7 @@ public class LuogoDTO implements DTO {
 	private String descrizione;
 	private String collocazione;
 	private String titolo;
-	private List<String> tagTipiAssociati; //si può usare TipoVisitaDTO e si dovrebbe
+	private List<String> tagTipiAssociati; 
 	private List<TipoVisitaDTO> tipiVisitaAssociati;
 	
 	public LuogoDTO(String tag, String titolo, List<String> tipiAssociati) {

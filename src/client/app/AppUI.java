@@ -371,7 +371,7 @@ public class AppUI implements App{
 	            view("Giorno già inserito!");
 	            continua = true;
 	        }
-	        if (giorni.size() == 7) continua = false; //inseriti TUTTI i giorni della settimana
+	        if (giorni.size() == 7) continua = false; 
 	    } while (continua);
 	    return giorni;
 	}

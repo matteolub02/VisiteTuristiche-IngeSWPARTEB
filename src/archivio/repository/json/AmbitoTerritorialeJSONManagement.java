@@ -57,7 +57,7 @@ public class AmbitoTerritorialeJSONManagement {
 		try {
 			for (String nomeLuogo : getLuoghi().toMap().keySet()) {
 				JSONObject infoLuogo = getLuogo(nomeLuogo);
-				if (!infoLuogo.get(TIPO_VISITA).equals("[]")) { //[] indica array vuoto tipivisite, quindi no visite
+				if (!infoLuogo.get(TIPO_VISITA).equals("[]")) { 
 				JSONArray tipiVisite = infoLuogo.getJSONArray(TIPO_VISITA);
 				List<String> tipiVisiteAssociati = new ArrayList<>();
 				for (int i = 0 ; i < tipiVisite.length() ; i++) 
@@ -79,7 +79,7 @@ public class AmbitoTerritorialeJSONManagement {
 		JSONArray tipiLuogo = getTipiLuogo(luogo);
 		for (int i = 0 ; i < tipiLuogo.length() ; i++) {
 			if (tipiLuogo.getString(i).equals(tipo)) {
-				tipiLuogo.remove(i); //rimuove reference
+				tipiLuogo.remove(i); 
 				break;
 			}
 		}
@@ -105,7 +105,7 @@ public class AmbitoTerritorialeJSONManagement {
 			JSONObject luoghi = jsonAmbitoTerritoriale.getJSONObject(LUOGHI);
 			for (String k : luoghi.toMap().keySet()) {
 				JSONObject j = luoghi.getJSONObject(k);
-				if (!j.get(TIPO_VISITA).equals("[]")) { //if empty should delete
+				if (!j.get(TIPO_VISITA).equals("[]")) { 
 					result.add(new LuogoDTO(j.getString(NAME), null));
 				}
 			}

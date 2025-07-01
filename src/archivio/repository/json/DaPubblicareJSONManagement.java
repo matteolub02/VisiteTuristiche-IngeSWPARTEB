@@ -35,7 +35,7 @@ public class DaPubblicareJSONManagement {
 		daPubblicare.put(DISPONIBILITA, new JSONObject());
 		daPubblicare.put(DATE_PRECLUSE, new JSONArray());
 		daPubblicare.put(DATE_PRECLUSE_MESEIPLUS3, new JSONArray());
-		daPubblicare.put(MESE_ULTIMA_PUBBLICAZIONE, Time.getActualDateValue(Time.MONTH)); //TODO da controllare
+		daPubblicare.put(MESE_ULTIMA_PUBBLICAZIONE, Time.getActualDateValue(Time.MONTH)); 
 		daPubblicare.put(ANNO_ULTIMA_PUBBLICAZIONE, Time.getActualDateValue(Time.YEAR));
 		daPubblicare.put(POSSIBILE_DARE_DISPONIBILITA, false);
 		JSONUtility.aggiornaJsonFile(daPubblicare, PATH_VISITE_DAPUBBLICARE, 10);
@@ -102,9 +102,9 @@ public class DaPubblicareJSONManagement {
 	}
 	
 	
-	public boolean inserisciDisponibilita(String data, String username, List<DataDisponibilitaDTO> m) { //ok\
+	public boolean inserisciDisponibilita(String data, String username, List<DataDisponibilitaDTO> m) { 
 		List<String> datePrecluse = getDatePrecluse();
-		if (datePrecluse.contains(data)) return false; //per precondizione già sistemato
+		if (datePrecluse.contains(data)) return false; 
 		for (DataDisponibilitaDTO dataDisp : m) {
 			if ((dataDisp.getGiorni().contains(data))) {
 				JSONObject disponibilita = jsonPianoVisiteDaPubblicare.getJSONObject(DISPONIBILITA);

@@ -62,7 +62,7 @@ public class Archivio implements AmbitoManager, AppManager {
 			if (!isPrimaPubblicazione() && Time.getActualDateValue(Time.DAY) >= RELEASE_DAY&&
 					((visitRep.getUltimoMesePubblicazione() == Time.getActualDateValue(Time.MONTH) 
 					&& visitRep.getUltimoAnnoPubblicazione() == Time.getActualDateValue(Time.YEAR)))) { //aggiornato quando pubblicato
-				if (!(visitRep.isUltimoPianoPubblicato()) || visitRep.getPossibileDareDisponibilita()) return false; //SE ULTIMO PIANO NON PUBBLICATO O GIA' APERTA RITORNA FALSO
+				if (!(visitRep.isUltimoPianoPubblicato()) || visitRep.getPossibileDareDisponibilita()) return false; 
 				else return visitRep.apriRaccoltaDisponibilita();
 			}
 			else {
@@ -141,7 +141,7 @@ public class Archivio implements AmbitoManager, AppManager {
 			return ambitoRep.aggiungiLuogo(luogo);
 		else return false;
 	}
-	//Usato da impostaAmbito, può essere riusato
+
 	public void setPrimaConfigurazione() {
 		ambitoRep.setPrimaConfigurazione();
 	}
@@ -172,7 +172,7 @@ public class Archivio implements AmbitoManager, AppManager {
 			if (Time.comesBefore(tipoDaAggiungere.getDataInizio(), tipo.getDataFine()) 
 					&& !Time.comesBefore(tipoDaAggiungere.getDataFine(), tipo.getDataInizio())) {
 				for (int day : tipo.getGiorniPrenotabiliVal()) {
-					if (tipoDaAggiungere.getGiorniPrenotabiliVal().contains(day)) { //vuol dire che un giorno qualsiasi può intersecare
+					if (tipoDaAggiungere.getGiorniPrenotabiliVal().contains(day)) { 
 						String startHourType = tipo.getOraInizio();
 						int[] fValue = Time.calculateEndTimeWithStartAndDuration(Integer.parseInt(startHourType.split(":")[0]), Integer.parseInt(startHourType.split(":")[1]), tipo.getDurataVisita());
 						String finishHourType = String.format("%02d:%02d", fValue[0], fValue[1]);

@@ -15,7 +15,7 @@ import utility.Time;
 
 public class PianoVisiteJSONManagement {
 	
-	private static final String PROPOSTA = "proposta", CANCELLATA = "cancellata", CONFERMATA = "confermata", COMPLETA = "completa"; //EFFETTUATA = "effettuata"
+	private static final String PROPOSTA = "proposta", CANCELLATA = "cancellata", CONFERMATA = "confermata", COMPLETA = "completa"; 
 	private static final String PATH_VISITE = "json/piano_visite.json";
 	private JSONObject jsonPianoVisite = null; 
 	private static final String LAST_CHECK = "last-check";
@@ -247,10 +247,10 @@ public class PianoVisiteJSONManagement {
 	public List<VisitaDTO> getElencoVisiteProposteCompleteConfermateCancellateEffettuate (Map<String, String> tipiVisiteTitoli) {
 	    List<VisitaDTO> visiteList = new ArrayList<>();
 
-		for (String k : jsonPianoVisite.keySet()) { //giorno
+		for (String k : jsonPianoVisite.keySet()) { 
 			if (!k.equals(LAST_CHECK)) {
-				JSONObject j = jsonPianoVisite.getJSONObject(k); //prende le visite associate a quel giorno
-				for (String m : j.keySet()) { //visite del giorno
+				JSONObject j = jsonPianoVisite.getJSONObject(k); 
+				for (String m : j.keySet()) { 
 					JSONObject visita = j.getJSONObject(m);
 	                VisitaDTO visitaDTO = new VisitaDTO( 
 	                		tipiVisiteTitoli.get(m),

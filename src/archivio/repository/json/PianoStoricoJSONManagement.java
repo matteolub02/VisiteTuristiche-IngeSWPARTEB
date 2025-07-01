@@ -32,7 +32,7 @@ public class PianoStoricoJSONManagement {
 				VisitaDTO visitaDTO = new VisitaDTO(
 						visitaStorica,
 						giornoVisite,
-						visiteStoricheGiornoX.getString(visitaStorica), //TODO per salvare anche cancellate, renderlo un JSONObject, o rivedere con DBMS
+						visiteStoricheGiornoX.getString(visitaStorica), 
 						"effettuata");
                 visiteList.add(visitaDTO);
 			}

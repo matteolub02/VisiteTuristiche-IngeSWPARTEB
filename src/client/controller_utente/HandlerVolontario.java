@@ -44,15 +44,15 @@ public class HandlerVolontario extends ControllerUtente {
 	//Postcondizione: disponibilità in Archivio
 	@MethodName("Comunica le tue prossime disponibilità")
  	public void comunicaDisponibilita() {
- 		if (appPlan.getPossibilitaDareDisponibilita()) { //se posso dare disponibilità	
- 			List<DataDisponibilitaDTO> dateDisponibilita = userInfo.getDatePerDisponibilita(connectionCode); //prendi disponibilità possibili
- 			if (dateDisponibilita == null) { //TODO se null significa che il volontario dovrebbe essere eliminato
+ 		if (appPlan.getPossibilitaDareDisponibilita()) { 
+ 			List<DataDisponibilitaDTO> dateDisponibilita = userInfo.getDatePerDisponibilita(connectionCode); 
+ 			if (dateDisponibilita == null) { 
  				a.catchEvent(AppEvent.NO_AVAILABILITY);
  			}
  			else { //se ho disponibilità
  				visualDateDisponibilita(dateDisponibilita);
  				do {
- 					String data = a.richiediDataValida("data in cui dai disponibilità"); //inserisco data
+ 					String data = a.richiediDataValida("data in cui dai disponibilità"); 
  					if (userInfo.inserisciDisponibilita(connectionCode, data)) {
  						a.catchEvent(AppEvent.INSERTED_DISPONIBILITY);
  					}
